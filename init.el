@@ -27,8 +27,8 @@
 (eval-when-compile
   (require 'use-package))
 
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
+;; (when (executable-find "curl") ;; uncomment if this is needed again
+;;   (setq helm-google-suggest-use-curl-p t))
 
 (setq inhibit-startup-message t)
 (column-number-mode t)
