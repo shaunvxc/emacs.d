@@ -92,7 +92,7 @@
   :init
   (winner-mode 1))
 
-;; winner
+;; ace-window
 (use-package ace-window
   :ensure t
   :defer t
