@@ -1,0 +1,15 @@
+*~
+elpa/
+ac-comphist.dat
+bookmarks
+emojis/
+games/
+recentf
+themes/
+var/
+eshell/
+.mc-lists.el
+.tutor/
+.python-environments/
+tramp
+url/
