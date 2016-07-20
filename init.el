@@ -89,7 +89,7 @@
 (use-package winner
   :ensure t
   :defer t
-  :config
+  :init
   (winner-mode 1))
 
 ;; winner
@@ -101,9 +101,10 @@
 ;; undo tree
 (use-package undo-tree
   :ensure t
+  :init
+  (global-undo-tree-mode)
   :config
   (progn
-    (global-undo-tree-mode t)
     (setq undo-tree-visualizer-timestamps t)
     (setq undo-tree-visualizer-diff t))
   :bind (("C-x C-u" . undo-tree-visualize))
