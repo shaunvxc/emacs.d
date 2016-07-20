@@ -57,13 +57,3 @@
 
 (provide 'init-helm-vig)
 ;;; init-helm-vig.el ends here
-
-
-
-
-
-
-
-
-
-
