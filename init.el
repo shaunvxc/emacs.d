@@ -131,6 +131,10 @@
     (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
     ))
 
+(use-package nyan-mode
+  :ensure t
+)
+
 (use-package powerline
   :ensure t
   :config
@@ -172,6 +176,10 @@
 (use-package expand-region                    ; expand-region
   :ensure t
   :bind ( ("C-=" . er/expand-region)))
+
+(use-package dark-mint-theme
+  :ensure t
+)
 
 (load-theme 'dark-mint t)
 

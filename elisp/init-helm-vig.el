@@ -5,10 +5,13 @@
 ;;
 
 (use-package helm-swoop
+  :ensure t
   :config
   (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
   (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)
 )
+
+(use-package helm-config)
 
 (use-package helm
   :diminish helm-mode
