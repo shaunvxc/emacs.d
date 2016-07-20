@@ -89,6 +89,11 @@
 (use-package winner
   :defer t)
 
+;; winner
+(use-package ace-window
+  :defer t
+  :bind (("M-p" . ace-window)))
+
 ;; undo tree
 (use-package undo-tree
   :diminish undo-tree-mode
