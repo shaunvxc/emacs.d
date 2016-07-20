@@ -30,6 +30,9 @@
 		   (t
 		    '(display-buffer-same-window))))))
 
+    (setq magit-auto-revert-immediately
+          (null (and (boundp 'auto-revert-use-notify)
+                     auto-revert-use-notify)))
 
     (defun split-window-prefer-vertically (window)
       "If there's only one window (excluding any possibly active minibuffer), then split [current] WINDOW vertically."

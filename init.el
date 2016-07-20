@@ -123,6 +123,7 @@
   :load-path "elisp"
   :init
   (progn
+    (require 'flymake)
     (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
     ))
 
