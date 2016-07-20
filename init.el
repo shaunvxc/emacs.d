@@ -35,7 +35,6 @@
 (delete-selection-mode 1)
 (show-paren-mode t)
 (global-linum-mode 1)
-(global-flycheck-mode)
 (tool-bar-mode -1)
 
 (when (eq system-type 'darwin)
@@ -97,6 +96,11 @@
   :ensure t
   :defer t
   :bind (("M-p" . ace-window)))
+
+;; flycheck
+(use-package flycheck
+  :init
+  (global-flycheck-mode 1))
 
 ;; undo tree
 (use-package undo-tree
