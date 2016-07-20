@@ -87,19 +87,23 @@
 
 ;; winner
 (use-package winner
-  :defer t)
+  :ensure t
+  :defer t
+  :config
+  (winner-mode 1))
 
 ;; winner
 (use-package ace-window
+  :ensure t
   :defer t
   :bind (("M-p" . ace-window)))
 
 ;; undo tree
 (use-package undo-tree
-  :diminish undo-tree-mode
+  :ensure t
   :config
   (progn
-    (global-undo-tree-mode)
+    (global-undo-tree-mode t)
     (setq undo-tree-visualizer-timestamps t)
     (setq undo-tree-visualizer-diff t))
   :bind (("C-x C-u" . undo-tree-visualize))
