@@ -2,10 +2,9 @@
 ;;; Code:
 ;;; Commentary:
 ;;; magit config
-
 (use-package magit
-
-  :init
+  :ensure t
+  :config
   (progn
     (with-eval-after-load 'info
       (info-initialize)

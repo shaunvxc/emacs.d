@@ -96,19 +96,21 @@
 
 ;; flycheck
 (use-package flycheck
-  :init
+  :config
   (global-flycheck-mode 1))
 
 ;; undo tree
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :init
   (global-undo-tree-mode)
   :config
   (progn
     (setq undo-tree-visualizer-timestamps t)
     (setq undo-tree-visualizer-diff t))
-  :bind (("C-x C-u" . undo-tree-visualize))
+  :bind (("C-x C-u" . undo-tree-visualize)
+	 ("C-z" . undo-tree-visualize))
   )
 
 ;;; markdown-mode
@@ -121,6 +123,7 @@
     (add-to-list 'auto-mode-alist '("\\.mdpp$" . markdown-mode))))
 
 (use-package csharp-mode
+  :mode "\\.cs$"
   :load-path "elisp"
   :init
   (progn
@@ -129,15 +132,18 @@
     ))
 
 (use-package nyan-mode
+  :if window-system
   :ensure t
+  :config
+  (nyan-mode)
+  (nyan-start-animation)
 )
 
 (use-package powerline
   :ensure t
   :config
-  (powerline-default-theme)
-  (nyan-mode)
-  (nyan-start-animation))
+  (powerline-default-theme))
+
 
 (use-package dumb-jump
   :ensure t
