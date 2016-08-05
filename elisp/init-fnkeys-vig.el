@@ -136,11 +136,10 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
+(global-set-key (kbd "C-;") 'isearch-forward)
 ;; use goto-line center
 (global-set-key (kbd "M-g M-g") 'goto-line-center)
 
 (global-set-key (kbd "C-x o") 'other-window)
-
 (provide 'init-fnkeys-vig)
 ;;; init-fnkeys-vig.el ends here
