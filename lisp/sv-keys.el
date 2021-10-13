@@ -48,7 +48,7 @@
   :ensure t
   :bind ( ("C->" . mc/mark-next-like-this)
 	  ("C-<" . mc/mark-previous-like-this)
-	  ("C-c C-<" . mc/mark-all-like-this)))
+	  ("C-c C-a" . mc/mark-all-like-this)))
 
 (use-package expand-region                    ; expand-region
   :ensure t
