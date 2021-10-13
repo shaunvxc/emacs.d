@@ -65,6 +65,14 @@
 
 (setq next-line-add-newlines nil)
 
+;; configure electric pair mode
+(setq electric-pair-pairs
+      '(
+        (?\" . ?\")
+        (?\{ . ?\})))
+
+(electric-pair-mode 1)
+
 
 (provide 'sv-ui)
 ;;; sv-ui.el ends here

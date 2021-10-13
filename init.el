@@ -35,12 +35,17 @@
 (require 'sv-ui)
 (require 'sv-keys)
 
+;; set org mode capture fns [maybe move to an sv-org.el?
 (setq org-agenda-files (list "/home/shaunvig/org/"))
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;; allow for y and n instead of yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; make scratch buffer the first buffer
+(setq inhibit-startup-screen t)
 
+;; custom set variables below
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
