@@ -1,13 +1,12 @@
-;;; init-magit-vig.el --- My startup file for magit. -*- lexical-binding: t -*-
-;;; Code:
-;;; Commentary:
-;;; magit config
+
+
 (use-package magit
   :ensure t
   :config
   (progn
     (with-eval-after-load 'info
       (info-initialize)
+      (define-key magit-mode-map (kbd "<tab>") 'magit-section-toggle)    ; was smart-tab-disabled-major-modes
       (add-to-list 'Info-directory-list
 		   "~/.emacs.d/site-lisp/magit/Documentation/"))
 
@@ -51,5 +50,4 @@
                  '(".*COMMIT_EDITMSG". ((display-buffer-pop-up-window) .
                                         ((inhibit-same-window . t))))))
 
-(provide 'init-magit-vig)
-;;; init-magit-vig.el ends here
+(provide 'sv-magit)

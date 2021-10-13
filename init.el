@@ -1,190 +1,58 @@
-;;; init.el -- my emacs config
+;;; init.el --- My Emacs Setup
+;;
+;; Author: Shaun Viguerie <shaunvig114@gmail.com>
+;;
+;; Copyright (C) 2015-2021 Shaun Viguerie
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;;
 ;;; Commentary:
-;;; byte-compile-warnings: (not free-vars)
+;;
+;; Entry point for my Emacs setup.  This module's main goal is to load
+;; other files that do more specific setup work.
+;;
 ;;; Code:
 
-(with-no-warnings
-   (require 'cl))
 
-(setq message-log-max 10000)
+;; Default path to load lisp files
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;;; Package management
 
-;; Please don't load outdated byte code
-(setq load-prefer-newer t)
+(require 'sv-pkgs)
+(require 'sv-helm)
+(require 'sv-magit)
+(require 'sv-ui)
+(require 'sv-keys)
 
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(setq org-agenda-files (list "/home/shaunvig/org/"))
+(global-set-key (kbd "C-c c") 'org-capture)
 
-(package-initialize)
-
-;; Bootstrap `use-package'
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
-
-(setq inhibit-startup-message t)
-(column-number-mode t)
-(delete-selection-mode 1)
-(show-paren-mode t)
-(global-linum-mode 1)
-(tool-bar-mode -1)
-
-(when (eq system-type 'darwin)
-  (setq mac-option-modifier 'control) ; was alot
-  (setq mac-command-modifier 'meta)
-  (setq ns-function-modifier 'alt) ;fn is control -- was control
-)
-
-;;; smooth scroll
-(setq scroll-conservatively 10000)
-
-;; prevent mouse scrolling from sucking ass
-(setq mouse-wheel-scroll-amount '(0.07))
-(setq mouse-wheel-progressive-speed nil)
-
-;; turn the friggan beep noise off!
-(setq ring-bell-function 'ignore)
-
-;; Emacs will not automatically add new lines
-(setq next-line-add-newlines nil)
-
-;; prevent too much line wrapping...
-'(fill-column 1000)
-
-;; allow narrowing
-(put 'narrow-to-region 'disabled nil)
-
-;; way to similar to exit emacs, unbind it
-(global-unset-key (kbd "C-x c"))
-
-;; y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; font for all unicode characters
-(set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
-
-;; helm
-(use-package init-helm-vig
-  :load-path "elisp"
-)
-
-;; magit
-(use-package init-magit-vig
-  :load-path "elisp")
-
-;; various functions & key bindings
-(use-package init-fnkeys-vig
-  :load-path "elisp")
-
-;; winner
-(use-package winner
-  :ensure t
-  :defer t
-  :init
-  (winner-mode 1))
-
-;; ace-window
-(use-package ace-window
-  :ensure t
-  :defer t
-  :bind (("M-p" . ace-window)))
-
-;; flycheck
-(use-package flycheck
-  :config
-  (global-flycheck-mode 1))
-
-;; undo tree
-(use-package undo-tree
-  :ensure t
-  :diminish undo-tree-mode
-  :init
-  (global-undo-tree-mode)
-  :config
-  (progn
-    (setq undo-tree-visualizer-timestamps t)
-    (setq undo-tree-visualizer-diff t))
-  :bind (("C-x C-u" . undo-tree-visualize)
-	 ("C-z" . undo-tree-visualize))
-  )
-
-;;; markdown-mode
-(use-package markdown-mode
-  :load-path "elisp"
-  :init
-  (progn
-    (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-    (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-    (add-to-list 'auto-mode-alist '("\\.mdpp$" . markdown-mode))))
-
-(use-package csharp-mode
-  :mode "\\.cs$"
-  :load-path "elisp"
-  :init
-  (progn
-    (require 'flymake)
-    (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
-    ))
-
-(use-package nyan-mode
-  :if window-system
-  :ensure t
-  :config
-  (nyan-mode)
-  (nyan-start-animation)
-)
-
-(use-package powerline
-  :ensure t
-  :config
-  (powerline-default-theme))
 
 
-(use-package dumb-jump
-  :ensure t
-  :config
-  (progn
-    (defun dumb-jump-go-autosave ()
-      "Save before calling dump-jump-go."
-      (interactive)
-      (save-buffer)
-      (dumb-jump-go)
-      (recenter-top-bottom)
-      )
-    )
-  :bind ( ("M-." . dumb-jump-go-autosave))
-)
-
-(use-package company                    ; Graphical (auto-)completion
-  :ensure t
-  :init (global-company-mode)
-  :config
-  (setq company-tooltip-align-annotations t
-        company-tooltip-flip-when-above t
-        ;; Easy navigation to candidates with M-<n>
-        company-show-numbers t)
-  :diminish company-mode)
-
-(use-package multiple-cursors                    ; multiple cursors
-  :ensure t
-  :bind ( ("C->" . mc/mark-next-like-this)
-	  ("C-<" . mc/mark-previous-like-this)
-	  ("C-c C-<" . mc/mark-all-like-this)))
-
-(use-package expand-region                    ; expand-region
-  :ensure t
-  :bind ( ("C-=" . er/expand-region)))
-
-(use-package dark-mint-theme
-  :ensure t
-)
-
-(load-theme 'dark-mint t)
-
-(provide 'init)
-;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(ace-jump-mode ace-jump ace-window expand-region multiple-cursors undo-tree dumb-jump key-chord magit helm-projectile helm-adaptive helm helm-config powerline nyan-mode spacemacs-theme use-package))
+ '(spacemacs-theme-custom-colors '((meta . "#2aa198"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

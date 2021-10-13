@@ -4,20 +4,17 @@
 ;;; Load all autoloads for helm and its extensions
 ;;
 
-(use-package helm-swoop
-  :ensure t
-  :config
-  (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
-  (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)
-)
+(defun my-helm-grep-do-git-grep (not-all)
+  (interactive "P")
+  (helm-grep-git-1 default-directory (null not-all)))
 
-(use-package helm-config)
 
 (use-package helm
   :diminish helm-mode
   :init
   (progn
     (require 'helm-config)
+    (setq helm-locate-command "mdfind -name %s %s")
     (setq helm-candidate-number-limit 100)
     ;; From https://gist.github.com/antifuchs/9238468
     (setq helm-idle-delay 0.0 ; update fast sources immediately (doesn't).
@@ -36,17 +33,15 @@
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
   (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
+  (setq helm-adaptive-mode 1)
   (when (executable-find "curl")
     (setq helm-google-suggest-use-curl-p t))
 
   (setq helm-ff-skip-boring-files t) ;; and this one
   (setq helm-ff-file-name-history-use-recentf t) ;; and this one
   :bind (("C-c h" . helm-command-prefix)
-	 ("C-s" . helm-swoop)
-	 ("M-i" . helm-swoop-back-to-last-point)
-	 ("C-c M-i" . helm-multi-swoop)
-	 ("C-x M-i" . helm-multi-swoop-all)
+         ("M-i" . helm-multi-swoop-all)
+         ("C-s" . helm-occur)
 	 ("C-x C-f" . helm-find-files)
 	 ("C-x C-b" . switch-to-buffer)
          ("C-h a" . helm-apropos)
@@ -54,10 +49,16 @@
          ("C-x b" . helm-buffers-list)
          ("M-y" . helm-show-kill-ring)
          ("M-x" . helm-M-x)
-         ("C-x c o" . helm-occur)
-         ("C-x c s" . helm-swoop)
+         ("C-0" . my-helm-grep-do-git-grep)
+	 ;; ("C-0" . helm-grep-do-git-grep)
+         ("C-x f" . helm-for-files)
          ("C-x c y" . helm-yas-complete)
 	 ("C-x c SPC" . helm-all-mark-rings)))
 
-(provide 'init-helm-vig)
+(use-package helm-projectile
+  :ensure t
+  :config (projectile-global-mode)
+)
+
+(provide 'sv-helm)
 ;;; init-helm-vig.el ends here
