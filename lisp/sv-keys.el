@@ -23,12 +23,13 @@
       "Save before calling dump-jump-go."
       (interactive)
       (save-buffer)
-      (dumb-jump-go)
+      ;; (dumb-jump-go)
+      (xref-find-definitions (symbol-name (symbol-at-point)))
       (recenter-top-bottom)
       )
     )
   :bind ( ("M-." . dumb-jump-go-autosave))
-)
+  )
 
 (use-package undo-tree
   :ensure t
