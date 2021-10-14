@@ -43,7 +43,6 @@
 	 ("C-z" . undo-tree-visualize))
   )
 
-
 (use-package multiple-cursors                    ; multiple cursors
   :ensure t
   :bind ( ("C->" . mc/mark-next-like-this)
