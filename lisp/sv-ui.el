@@ -29,50 +29,72 @@
 (use-package spacemacs-theme
   :defer t
   :init
+  (custom-set-variables '(spacemacs-theme-custom-colors '((meta . "#2aa198"))))
   (load-theme 'spacemacs-dark t)
-  (custom-set-variables '(spacemacs-theme-custom-colors '((meta . "#2aa198")))))
-
-
-(use-package nyan-mode
-  :ensure t
-  :config
-  (nyan-mode)
-  (nyan-start-animation)
   )
 
-(use-package powerline
+(use-package dark-mint-theme
   :ensure t
-  :config
-  (powerline-default-theme)
+  :init
+  (load-theme 'dark-mint t)
+  (set-cursor-color "#ffffaf"); make cursor the color of banana
   )
 
+(setq set-cursor-color "#ffffaf")
+(require 'frame)
+(defun set-cursor-hook (frame)
+  (set-cursor-color "#ffffaf"); make cursor the color of banana
+ )
+
+(add-hook 'after-make-frame-functions 'set-cursor-hook)
+
+
+(use-package nlinum
+  :ensure t
+  )
+
+;; (use-package nyan-mode
+;;   :ensure t
+;;   :config
+;;   (nyan-mode)
+;;   (make-variable-buffer-local 'nyan-mode)
+;;   (add-hook 'ein:notebook-mode-hook (lambda () (setq nyan-mode nil)))
+;;   )
+
+;; (nyan-mode -1)
+
+;; (use-package powerline
+;;   :ensure t
+;;   :config
+;;   (powerline-default-theme)
+;;   )
 
 (use-package ace-window
   :ensure t
   :defer t
   :bind (("M-p" . ace-window)))
 
+
 (column-number-mode t)
 (delete-selection-mode 1)
 (show-paren-mode t)
-(global-linum-mode 1)
+
+;; (global-linum-mode -1)
+(global-nlinum-mode)
 (tool-bar-mode -1)
+
 (setq ring-bell-function 'ignore)
 
-
 ;; prevent too much line wrapping...
-'(fill-column 1000)
+;; '(fill-column 1000)
 
-(setq next-line-add-newlines nil)
-
-;; configure electric pair mode
+;; ;; configure electric pair mode
 (setq electric-pair-pairs
       '(
         (?\" . ?\")
-        (?\{ . ?\})))
+        (?\{ . ?\}))q)
 
 (electric-pair-mode 1)
-
 
 (provide 'sv-ui)
 ;;; sv-ui.el ends here

@@ -21,6 +21,7 @@
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   )
+
 (use-package company-anaconda
   :ensure t
   :init (require 'rx)
@@ -36,34 +37,13 @@
   (company-quickhelp-mode)
   )
 
-;; Another choice is Jedi, but it is designed to work with
-;; AutoComplete instead of company-mode.  There's jedi-company, but
-;; `jedi:setup` will always setup ac, unless you disable it
-;; explicitly, which is annoying.  Also, you don't get the tool tip.
-
-;; If you really want to try with jedi+company, use below scripts it
-;; (remove the :disabled tag)
-(use-package jedi
-  :disabled
-  :after (epc pos-tip)
-  :init
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (add-hook 'python-mode-hook 'jedi:ac-setup)
+(use-package ein
+  :ensure t
   :config
-  ;; For setup
-  ;; http://d.hatena.ne.jp/n-channel/20131220/1387551080
-  ;; and this:
-  ;; http://kenbell.hatenablog.com/entry/2017/01/15/112344
-
-  ;; Under windows, process might very long and EPC may fail.
-  ;; Set it larger. What a bummer...
-  ;;(if (memq system-type '(ms-dos windows-nt))
-  ;;(setq epc:accept-process-timeout 1000))
+  (add-hook 'ein:notebook-mode (lambda () (message "hello")))
+  ;; (setq ein:polymode t)
   )
 
-(use-package company-jedi
-  :disabled
-  :ensure t
-  :config)
+
 
 (provide 'sv-python)

@@ -122,6 +122,7 @@
 
 (global-set-key (kbd "C-.") 'other-window)
 (global-set-key (kbd "C-,") 'prev-window)
+(global-set-key (kbd "C-;") 'other-frame)
 
 
 (provide 'sv-keys)
