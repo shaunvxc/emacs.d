@@ -40,7 +40,7 @@
 (use-package ein
   :ensure t
   :config
-  (add-hook 'ein:notebook-mode (lambda () (message "hello")))
+  ;; (add-hook 'ein:notebook-mode (lambda () (message "hello")))
   ;; (setq ein:polymode t)
   )
 
