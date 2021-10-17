@@ -52,11 +52,6 @@
   :ensure t
   )
 
-(use-package smart-mode-line
-  :ensure t
-  :config
-  (sml/setup)
-  )
 
 (use-package nyan-mode
   :ensure t
@@ -64,20 +59,20 @@
   (nyan-mode)
 )
 
-(add-hook 'polymode-after-switch-buffer-hook (lambda (x y) (if ( cl-search "ipynb" (buffer-name))  (nyan-mode -1) (nyan-mode))))
+(defun toggle-nyan (x y)
+  (if (cl-search "ipynb" (buffer-name)) (nyan-mode -1) (nyan-mode))
+  )
 
-;; (use-package powerline
-;;   :ensure t
-;;   :config
-;;   (powerline-default-theme)
-;;   )
+(add-hook 'polymode-after-switch-buffer-hook 'toggle-nyan)
 
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 (use-package ace-window
   :ensure t
   :defer t
   :bind (("M-p" . ace-window)))
-
 
 (column-number-mode t)
 (delete-selection-mode 1)
