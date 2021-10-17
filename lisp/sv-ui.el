@@ -26,12 +26,12 @@
 
 (require 'org)
 
-(use-package spacemacs-theme
-  :defer t
-  :init
-  (custom-set-variables '(spacemacs-theme-custom-colors '((meta . "#2aa198"))))
-  (load-theme 'spacemacs-dark t)
-  )
+;; (use-package spacemacs-theme
+;;   :defer t
+;;   :init
+;;   (custom-set-variables '(spacemacs-theme-custom-colors '((meta . "#2aa198"))))
+;;   (load-theme 'spacemacs-dark t)
+;;   )
 
 (use-package dark-mint-theme
   :ensure t
@@ -52,21 +52,26 @@
   :ensure t
   )
 
-;; (use-package nyan-mode
-;;   :ensure t
-;;   :config
-;;   (nyan-mode)
-;;   (make-variable-buffer-local 'nyan-mode)
-;;   (add-hook 'ein:notebook-mode-hook (lambda () (setq nyan-mode nil)))
-;;   )
+(use-package smart-mode-line
+  :ensure t
+  :config
+  (sml/setup)
+  )
 
-;; (nyan-mode -1)
+(use-package nyan-mode
+  :ensure t
+  :config
+  (nyan-mode)
+)
+
+(add-hook 'polymode-after-switch-buffer-hook (lambda (x y) (if ( cl-search "ipynb" (buffer-name))  (nyan-mode -1) (nyan-mode))))
 
 ;; (use-package powerline
 ;;   :ensure t
 ;;   :config
 ;;   (powerline-default-theme)
 ;;   )
+
 
 (use-package ace-window
   :ensure t
