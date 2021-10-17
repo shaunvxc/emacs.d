@@ -48,7 +48,6 @@
 
 (add-hook 'after-make-frame-functions 'set-cursor-hook)
 
-
 (use-package nlinum
   :ensure t
   )
@@ -92,7 +91,7 @@
 (setq electric-pair-pairs
       '(
         (?\" . ?\")
-        (?\{ . ?\}))q)
+        (?\{ . ?\})))
 
 (electric-pair-mode 1)
 

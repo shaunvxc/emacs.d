@@ -28,13 +28,12 @@
 ;; Default path to load lisp files
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-
 (require 'sv-pkgs)
 (require 'sv-helm)
 (require 'sv-magit)
 (require 'sv-python)
-(require 'sv-ui)
 (require 'sv-keys)
+(require 'sv-ui)
 
 ;; set org mode capture fns [maybe move to an sv-org.el?
 (setq org-agenda-files (list "/home/shaunvig/org/"))
