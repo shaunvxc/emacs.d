@@ -58,6 +58,11 @@
   (nyan-mode)
 )
 ;; nyan mode really slows down ein ... so disable nyan cat in python notebooks
+
+(defun in-ein-notebook ()
+  (if (cl-search "ipynb" (buffer-name)) t nil )
+  )
+
 (defun turn-nyan-off-if-on()
   (when (eq nyan-mode t)
     (nyan-mode -1)
