@@ -52,20 +52,29 @@
   :ensure t
   )
 
-
 (use-package nyan-mode
   :ensure t
   :config
   (nyan-mode)
 )
-
-(defun toggle-nyan (x y)
-  (if (cl-search "ipynb" (buffer-name)) (nyan-mode -1) (nyan-mode))
+;; nyan mode really slows down ein ... so disable nyan cat in python notebooks
+(defun turn-nyan-off-if-on()
+  (when (eq nyan-mode t)
+    (nyan-mode -1)
+    )
   )
 
+(defun turn-nyan-on-if-off()
+  (when (eq nyan-mode nil)
+    (nyan-mode +1)
+    )
+  )
 
-;; this still doesn't work perfrectly... if I switch away frmo python then switch back i need to open a new file for nyan to open
-(add-hook 'polymode-after-switch-buffer-hook 'toggle-nyan)
+(defun turn-off-nyan-in-notebook ()
+  (if (eq (in-ein-notebook) t) (turn-nyan-off-if-on) (turn-nyan-on-if-off))
+  )
+
+(add-hook 'window-configuration-change-hook 'turn-off-nyan-in-notebook)
 
 (use-package doom-modeline
   :ensure t
