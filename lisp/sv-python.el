@@ -29,6 +29,7 @@
   :config
   (add-to-list 'company-backends 'company-anaconda)
   )
+
 (use-package company-quickhelp
   ;; Quickhelp may incorrectly place tooltip towards end of buffer
   ;; See: https://github.com/expez/company-quickhelp/issues/72
@@ -40,10 +41,7 @@
 (use-package ein
   :ensure t
   :config
-  ;; (add-hook 'ein:notebook-mode (lambda () (message "hello")))
-  ;; (setq ein:polymode t)
-  )
-
-
+  (setq ein:output-area-inlined-images t)
+)
 
 (provide 'sv-python)
