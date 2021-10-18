@@ -63,6 +63,8 @@
   (if (cl-search "ipynb" (buffer-name)) (nyan-mode -1) (nyan-mode))
   )
 
+
+;; this still doesn't work perfrectly... if I switch away frmo python then switch back i need to open a new file for nyan to open
 (add-hook 'polymode-after-switch-buffer-hook 'toggle-nyan)
 
 (use-package doom-modeline
