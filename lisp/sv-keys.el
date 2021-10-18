@@ -35,14 +35,10 @@
 (use-package undo-tree
   :ensure t
   :diminish undo-tree-mode
-  :init
-  (global-undo-tree-mode)
   :config
-  (progn
-    (setq undo-tree-visualizer-timestamps t)
-    (setq undo-tree-visualizer-diff t))
-  :bind (("C-x C-u" . undo-tree-visualize)
-	 ("C-z" . undo-tree-visualize))
+  (global-undo-tree-mode)
+  :bind (("C-z" . undo-tree-undo)
+	 ("M-z" . undo-tree-redo))
   )
 
 (use-package multiple-cursors                    ; multiple cursors
