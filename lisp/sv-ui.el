@@ -48,9 +48,13 @@
 
 (add-hook 'after-make-frame-functions 'set-cursor-hook)
 
+
+(set-frame-width (selected-frame) 180)
+
 (use-package nlinum
   :ensure t
   )
+
 
 (use-package nyan-mode
   :ensure t
@@ -58,7 +62,6 @@
   (nyan-mode)
 )
 ;; nyan mode really slows down ein ... so disable nyan cat in python notebooks
-
 (defun in-ein-notebook ()
   (if (cl-search "ipynb" (buffer-name)) t nil )
   )
@@ -66,16 +69,19 @@
 (defun turn-nyan-off-if-on()
   (when (eq nyan-mode t)
     (nyan-mode -1)
+    (nlinum-mode -1)
     )
   )
 
 (defun turn-nyan-on-if-off()
   (when (eq nyan-mode nil)
     (nyan-mode +1)
+    (nlinum-mode +1)
     )
   )
 
 (defun turn-off-nyan-in-notebook ()
+  ;; (message "running the nyan check")
   (if (eq (in-ein-notebook) t) (turn-nyan-off-if-on) (turn-nyan-on-if-off))
   )
 
