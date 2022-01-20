@@ -41,7 +41,7 @@
   (setq helm-ff-file-name-history-use-recentf t) ;; and this one
   :bind (("C-c h" . helm-command-prefix)
          ("M-i" . helm-multi-swoop-all)
-         ;; ("C-s" . helm-occur)
+         ("C-o" . helm-occur)
 	 ("C-x C-f" . helm-find-files)
 	 ("C-x C-b" . switch-to-buffer)
          ("C-h a" . helm-apropos)
