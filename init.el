@@ -36,9 +36,11 @@
 (require 'sv-ui)
 
 ;; set org mode capture fns [maybe move to an sv-org.el?
-(setq org-agenda-files (list "/home/shaunvig/org/"))
+(setq org-agenda-files '("~/org"))
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
+(setq org-default-notes-file "~/org/tasks.org")
 ;; allow for y and n instead of yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
