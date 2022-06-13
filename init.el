@@ -50,3 +50,6 @@
 ;; custom set variables below
 
 (put 'narrow-to-region 'disabled nil)
+
+;; to make the font smaller
+;; (set-face-attribute 'default nil :height 100)
