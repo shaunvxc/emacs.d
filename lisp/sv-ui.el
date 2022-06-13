@@ -87,6 +87,10 @@
 
 (add-hook 'window-configuration-change-hook 'turn-off-nyan-in-notebook)
 
+;; (use-package all-the-icons
+;;   :ensure t)
+;; (setq doom-modeline-major-mode-icon t)
+
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
