@@ -34,6 +34,7 @@
 (require 'sv-python)
 (require 'sv-keys)
 (require 'sv-ui)
+(require 'sv-org)
 
 ;; set org mode capture fns [maybe move to an sv-org.el?
 (setq org-agenda-files '("~/org"))
