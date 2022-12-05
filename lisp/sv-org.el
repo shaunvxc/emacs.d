@@ -26,6 +26,7 @@
 
 (require 'org)
 
+
 (setq org-todo-keywords
       '((sequence "TODO" "|" "SCHEDULED" "|" "IN PROGRESS" "TESTING" "|" "DONE" "DEPLOYED")))
 
