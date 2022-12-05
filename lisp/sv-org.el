@@ -28,7 +28,7 @@
 
 
 (setq org-todo-keywords
-      '((sequence "TODO" "|" "SCHEDULED" "|" "IN PROGRESS" "TESTING" "|" "DONE" "DEPLOYED")))
+      '((sequence "TODO" "|" "IN PROGRESS" "TESTING" "|" "DONE" "DEPLOYED")))
 
 ;; (use-package org-roam
 ;;   :ensure t

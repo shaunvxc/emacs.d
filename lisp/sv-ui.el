@@ -33,7 +33,6 @@
 ;;   (load-theme 'spacemacs-dark t)
 ;;   )
 
-
 (use-package dark-mint-theme
   :ensure t
   :init
