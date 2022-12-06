@@ -30,6 +30,9 @@
 (setq org-todo-keywords
       '((sequence "TODO" "|" "IN PROGRESS" "TESTING" "|" "DONE" "DEPLOYED")))
 
+
+(setq org-startup-with-inline-images t)
+
 ;; (use-package org-roam
 ;;   :ensure t
 ;;   :custom
