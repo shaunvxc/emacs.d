@@ -6,7 +6,7 @@
  :ensure t
  :config
  (setq company-idle-delay 0
-       company-minimum-prefix-length 2
+       company-minimum-prefix-length 1
        company-show-numbers t
        company-tooltip-limit 10
        company-tooltip-align-annotations t
@@ -22,21 +22,21 @@
   (add-hook 'python-mode-hook 'anaconda-mode)
   )
 
-(use-package company-anaconda
-  :ensure t
-  :init (require 'rx)
-  :after (company)
-  :config
-  (add-to-list 'company-backends 'company-anaconda)
-  )
+;; (use-package company-anaconda
+;;   :ensure t
+;;   :init (require 'rx)
+;;   :after (company)
+;;   :config
+;;   (add-to-list 'company-backends 'company-anaconda)
+;;   )
 
-(use-package company-quickhelp
-  ;; Quickhelp may incorrectly place tooltip towards end of buffer
-  ;; See: https://github.com/expez/company-quickhelp/issues/72
-  :ensure t
-  :config
-  (company-quickhelp-mode)
-  )
+;; (use-package company-quickhelp
+;;   ;; Quickhelp may incorrectly place tooltip towards end of buffer
+;;   ;; See: https://github.com/expez/company-quickhelp/issues/72
+;;   :ensure t
+;;   :config
+;;   (company-quickhelp-mode)
+;;   )
 
 (use-package ein
   :ensure t
