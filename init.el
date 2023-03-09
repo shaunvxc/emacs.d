@@ -52,6 +52,9 @@
 (use-package lsp-ui)
 (setq lsp-ui-doc-show-with-cursor t)
 
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 2014)) ; 1mb
+
 ;; set org mode capture fns [maybe move to an sv-org.el?
 (setq org-agenda-files '("~/org"))
 (global-set-key (kbd "C-c c") 'org-capture)
