@@ -54,6 +54,10 @@
 
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 2014)) ; 1mb
+(setq lsp-idle-delay 0.500)
+
+;; make sure envvar LSP_USE_PLISTS is set to true
+(setq lsp-use-plists t)
 
 ;; set org mode capture fns [maybe move to an sv-org.el?
 (setq org-agenda-files '("~/org"))
