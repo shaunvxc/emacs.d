@@ -12,25 +12,25 @@
   (key-chord-mode +1)
   )
 
-(use-package dumb-jump
-  :ensure t
-  :config
-  (setq dumb-jump-force-searcher 'ag)
-  (setq dumb-jump-mode 1)
+;; (use-package dumb-jump
+;;   :ensure t
+;;   :config
+;;   (setq dumb-jump-force-searcher 'ag)
+;;   (setq dumb-jump-mode 1)
 
-  (progn
-    (defun dumb-jump-go-autosave ()
-      "Save before calling dump-jump-go."
-      (interactive)
-      (save-buffer)
-      ;; (dumb-jump-go)
-      ;; (xref-find-definitions (symbol-name (symbol-at-point)))
-      (let ((xref-prompt-for-identifier nil)) (call-interactively #'xref-find-definitions))
-      (recenter-top-bottom)
-      )
-    )
-  :bind ( ("M-." . dumb-jump-go-autosave))
-  )
+;;   (progn
+;;     (defun dumb-jump-go-autosave ()
+;;       "Save before calling dump-jump-go."
+;;       (interactive)
+;;       (save-buffer)
+;;       ;; (dumb-jump-go)
+;;       ;; (xref-find-definitions (symbol-name (symbol-at-point)))
+;;       (let ((xref-prompt-for-identifier nil)) (call-interactively #'xref-find-definitions))
+;;       (recenter-top-bottom)
+;;       )
+;;     )
+;;   :bind ( ("M-." . dumb-jump-go-autosave))
+;;   )
 
 (use-package undo-tree
   :ensure t
@@ -52,11 +52,11 @@
   :bind ( ("<C-return>" . er/expand-region)))
 
 
-(use-package ace-jump-mode
-  :ensure t
-  :bind (  ("C-j" . ace-jump-word-mode)
-	   ("M-n" . ace-jump-line-mode))
-)
+;; (use-package ace-jump-mode
+;;   :ensure t
+;;   :bind (  ("C-j" . ace-jump-word-mode)
+;; 	   ("M-n" . ace-jump-line-mode))
+;; )
 
 ;; CUSTOM FUNCTIONS BELOW
 
