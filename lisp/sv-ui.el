@@ -48,21 +48,22 @@
 
 (add-hook 'after-make-frame-functions 'set-cursor-hook)
 
-
 (set-frame-width (selected-frame) 180)
 
 (use-package nlinum
   :ensure t
   )
 
+(use-package adaptive-wrap
+             :ensure t)
+(add-hook 'visual-line-mode-hook 'adaptive-wrap-prefix-mode)
 
-(use-package golden-ratio
+(use-package zoom
   :ensure t
   :config
-  (golden-ratio-mode)
-  (setq golden-ratio-auto-scale t)
-  ;; (setq golden-ratio-adjust-factor .4)
-  ;; (setq golden-ratio-wide-adjust-factor .4)
+  (setq zoom-size '(0.618 . 0.618))
+  (setq zoom-ignored-buffer-name-regexps '("^*helm" "^helm"))
+  (zoom-mode t)
   )
 
 
@@ -131,6 +132,62 @@
         (?\{ . ?\})))
 
 (electric-pair-mode 1)
+
+
+(custom-set-variables
+ '(frame-resize-pixelwise t)
+ '(indicate-buffer-boundaries 'left)
+ '(indicate-empty-lines t)
+ '(ring-bell-function 'ignore)
+ '(scroll-bar-mode nil)
+ '(show-paren-mode t)
+ '(truncate-lines t)
+ '(use-dialog-box nil)
+ '(vc-follow-symlinks t)
+ '(visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow)))
+
+(add-hook 'text-mode-hook 'visual-line-mode)
+(advice-add 'iconify-or-deiconify-frame :before-until 'display-graphic-p)
+
+(setq theme-color-accent  "#ffffaf")
+(setq theme-color-low     "#000000")
+(setq theme-color-high    "#ffffff")
+(setq theme-color-level-1 "#1D1F21")
+(setq theme-color-level-2 "#282A2E")
+(setq theme-color-level-3 "#373B41")
+(setq theme-color-level-4 "#C5C8C6")
+
+;; common colors
+(setq theme-color-red     "#A54242")
+(setq theme-color-green   "#8C9440")
+(setq theme-color-yellow  "#DE935F")
+(setq theme-color-blue    "#5F819D")
+(setq theme-color-magenta "#85678F")
+(setq theme-color-cyan    "#5E8D87")
+(setq theme-color-gray    "#707880")
+
+
+;; window dividers
+(custom-set-faces
+ `(window-divider             ((t (:foreground ,theme-color-level-3))))
+ `(window-divider-first-pixel ((t (:foreground ,theme-color-level-3))))
+ `(window-divider-last-pixel  ((t (:foreground ,theme-color-level-3))))
+ `(internal-border            ((t (:background ,theme-color-level-3)))))
+;; (setq set-cursor-color "#ffffaf")
+;; others
+(custom-set-faces
+ `(completions-common-part      ((t (:foreground ,theme-color-level-1 :background ,theme-color-accent))))
+ `(cursor                       ((t (:background ,"#ffffaf"))))
+ `(diff-refine-changed          ((t (:extend t))))
+ `(fringe                       ((t (:inherit (shadow)))))
+ `(isearch-fail                 ((t (:inherit (error)))))
+ `(minibuffer-prompt            ((t (:inherit (bold) :foreground ,theme-color-accent))))
+ `(pulse-highlight-start-face   ((t (:background ,theme-color-accent))))
+ `(region                       ((t (:foreground ,theme-color-level-1 :background ,theme-color-high :extend t))))
+ `(secondary-selection          ((t (:foreground ,theme-color-accent :background ,theme-color-high :extend t))))
+ `(show-paren-match             ((t (:inherit (bold) :foreground ,theme-color-accent))))
+ `(show-paren-mismatch          ((t (:inherit (error) :inverse-video t)))))
+
 
 (provide 'sv-ui)
 ;;; sv-ui.el ends here
