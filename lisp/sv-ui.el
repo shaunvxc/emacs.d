@@ -56,12 +56,23 @@
   )
 
 
+(use-package golden-ratio
+  :ensure t
+  :config
+  (golden-ratio-mode)
+  (setq golden-ratio-auto-scale t)
+  ;; (setq golden-ratio-adjust-factor .4)
+  ;; (setq golden-ratio-wide-adjust-factor .4)
+  )
+
+
 (use-package nyan-mode
   :ensure t
   :config
   (nyan-mode)
 )
 ;; nyan mode really slows down ein ... so disable nyan cat in python notebooks
+
 (defun in-ein-notebook ()
   (if (cl-search "ipynb" (buffer-name)) t nil )
   )
