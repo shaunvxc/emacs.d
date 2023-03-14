@@ -137,7 +137,7 @@
 (custom-set-variables
  '(frame-resize-pixelwise t)
  '(indicate-buffer-boundaries 'left)
- '(indicate-empty-lines t)
+ ;; '(indicate-empty-lines t)
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
