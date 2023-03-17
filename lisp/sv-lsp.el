@@ -23,6 +23,7 @@
 ;; other files that do more specific setup work.
 ;;
 ;;; Code:
+;;; A minimal config for using lsp-mode
 
 (use-package lsp-mode
     :commands (lsp lsp-deferred)
@@ -43,4 +44,30 @@
                            (require 'lsp-python-ms)
                            (lsp-deferred))))
 
+;; ;; make sure envvar LSP_USE_PLISTS is set to true... this should help speed things up but need to figure out why its breaking.
+;; (setq lsp-use-plists t)
+
+(setq gc-cons-threshold 200000000)
+(setq read-process-output-max (* 1024 2014)) ; 1mb
+(setq lsp-idle-delay 0.500)
+
+(setq lsp-lens-enable nil)		;will this prevent the cpu spikes?
+
+(setq lsp-ui-sideline-enable t)
+(setq lsp-ui-doc-enable nil)
+(setq lsp-ui-sideline-show-code-actions nil)
+(setq lsp-ui-sideline-show-symbol nil)
+(setq lsp-ui-sideline-show-hover nil)
+(setq lsp-ui-sideline-show-diagnostics t)
+(setq lsp-ui-sideline-delay 0.5)
+(setq lsp-prefer-flymake nil)
+;; ;; (setq lsp-ui-peek-enable nil)
+(setq lsp-enable-file-watchers nil)
+(setq lsp-log-max nil)
+(setq lsp-enable-links nil)
+(setq lsp-eldoc-enable-hover nil)
+(setq lsp-enable-symbol-highlighting nil)
+(setq lsp-enable-snippet nil)
+
+(add-hook 'xref-backend-functions #'lsp--xref-backend nil t)
 (provide 'sv-lsp)
