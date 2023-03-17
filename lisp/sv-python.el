@@ -2,25 +2,25 @@
 
 ;; Tool selection may be jedi, or anaconda-mode. This script settle it
 ;; down with anaconda-mode.
-(use-package company
- :ensure t
- :config
- (setq company-idle-delay 0
-       company-minimum-prefix-length 1
-       company-show-numbers t
-       company-tooltip-limit 10
-       company-tooltip-align-annotations t
-       ;; invert the navigation direction if the the completion popup-isearch-match
-       ;; is displayed on top (happens near the bottom of windows)
-       company-tooltip-flip-when-above t)
- (global-company-mode t)
- )
+;; (use-package company
+;;  :ensure t
+;;  :config
+;;  (setq company-idle-delay 0
+;;        company-minimum-prefix-length 1
+;;        company-show-numbers t
+;;        company-tooltip-limit 10
+;;        company-tooltip-align-annotations t
+;;        ;; invert the navigation direction if the the completion popup-isearch-match
+;;        ;; is displayed on top (happens near the bottom of windows)
+;;        company-tooltip-flip-when-above t)
+;;  (global-company-mode t)
+;;  )
 
-(use-package anaconda-mode
-  :ensure t
-  :config
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  )
+;; (use-package anaconda-mode
+;;   :ensure t
+;;   :config
+;;   (add-hook 'python-mode-hook 'anaconda-mode)
+;;   )
 
 ;; (use-package company-anaconda
 ;;   :ensure t
