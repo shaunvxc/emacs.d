@@ -133,7 +133,7 @@
 
 (electric-pair-mode 1)
 
-
+;; from @cyrus-and's configs
 (custom-set-variables
  '(frame-resize-pixelwise t)
  '(indicate-buffer-boundaries 'left)
@@ -188,6 +188,8 @@
  `(show-paren-match             ((t (:inherit (bold) :foreground ,theme-color-accent))))
  `(show-paren-mismatch          ((t (:inherit (error) :inverse-video t)))))
 
+(use-package rainbow-mode
+  :ensure t)
 
 (provide 'sv-ui)
 ;;; sv-ui.el ends here
