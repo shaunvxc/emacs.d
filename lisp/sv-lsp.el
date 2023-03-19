@@ -45,7 +45,7 @@
                            (lsp-deferred))))
 
 ;; ;; make sure envvar LSP_USE_PLISTS is set to true... this should help speed things up but need to figure out why its breaking.
-;; (setq lsp-use-plists t)
+(setq lsp-use-plists t)
 
 (setq gc-cons-threshold 200000000)
 (setq read-process-output-max (* 1024 2014)) ; 1mb
