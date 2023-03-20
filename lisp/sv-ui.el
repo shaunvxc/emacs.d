@@ -173,7 +173,7 @@
  `(window-divider-first-pixel ((t (:foreground ,theme-color-level-3))))
  `(window-divider-last-pixel  ((t (:foreground ,theme-color-level-3))))
  `(internal-border            ((t (:background ,theme-color-level-3)))))
-;; (setq set-cursor-color "#ffffaf")
+
 ;; others
 (custom-set-faces
  `(completions-common-part      ((t (:foreground ,theme-color-level-1 :background ,theme-color-accent))))
