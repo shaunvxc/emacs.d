@@ -178,6 +178,7 @@
 (custom-set-faces
  `(completions-common-part      ((t (:foreground ,theme-color-level-1 :background ,theme-color-accent))))
  `(cursor                       ((t (:background ,"#ffffaf"))))
+ `(doom-modeline-buffer-modified ((t (:inherit (bold) :foreground, "#ffffaf"))))
  `(diff-refine-changed          ((t (:extend t))))
  `(fringe                       ((t (:inherit (shadow)))))
  `(isearch-fail                 ((t (:inherit (error)))))
