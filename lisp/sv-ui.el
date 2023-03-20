@@ -151,7 +151,7 @@
 
 (setq theme-color-accent  "#ffffaf")
 (setq theme-color-low     "#000000")
-(setq theme-color-high    "#ffffff")
+(setq theme-color-high    "#ffffaf")
 (setq theme-color-level-1 "#1D1F21")
 (setq theme-color-level-2 "#282A2E")
 (setq theme-color-level-3 "#373B41")
