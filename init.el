@@ -53,5 +53,12 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+;; define a function to reset the state of variables
+(defun custom/reset-var (symbl)
+  "Reset SYMBL to its standard value."
+  (set symbl (eval (car (get symbl 'standard-value)))))
+
+
+
 ;; to make the font smaller
 ;; (set-face-attribute 'default nil :height 100)
