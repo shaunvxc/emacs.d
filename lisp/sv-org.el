@@ -56,5 +56,25 @@
 ;;   ;; If using org-roam-protocol
 ;;   (require 'org-roam-protocol))
 
+;; (use-package straight)
+(use-package jupyter)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t) ;; Other languages
+   (shell . t)
+   ;; Python & Jupyter
+   (python . t)
+   (jupyter . t)))
+
+(org-babel-jupyter-override-src-block "python")
+
+(add-to-list 'org-structure-template-alist
+             '("s" . "src"))
+
+(setq org-src-block-faces '(("emacs-lisp" (:background "#EEE2FF"))
+                            ("python" (:background "#EEE2FF"))))
+
+
 
 (provide 'sv-org)
