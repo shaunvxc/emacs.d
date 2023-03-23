@@ -53,9 +53,25 @@
 
 (use-package mwim
   :ensure t
+  :bind
+  ("C-a" . mwim-beginning-of-code-or-line)
+  ("C-e" . mwim-end-of-line-or-code)
+  ;; ("C-a" . mwim-beginning)
+  ;; ("C-e" . mwim-end)
+  ("M-a" . fk/backward-sexp)
+  ("M-e" . fk/forward-sexp)
   :config
-  (global-set-key (kbd "C-a") 'mwim-beginning)
-  (global-set-key (kbd "C-e") 'mwim-end))
+  (defun fk/forward-sexp (&optional N)
+    "Call `forward-sexp', fallback `forward-char' on error."
+    (interactive)
+    (condition-case nil
+        (forward-sexp N)
+      (error (forward-char N))))
+
+  (defun fk/backward-sexp ()
+    "`fk/forward-sexp' with negative argument."
+    (interactive)
+    (fk/forward-sexp -1)))
 
 ;; (use-package ace-jump-mode
 ;;   :ensure t
