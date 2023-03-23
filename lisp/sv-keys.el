@@ -37,7 +37,8 @@
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)
-  (setq undo-tree-audo-save-history nil)
+  (setq undo-tree-audo-save-history t)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   :bind (("C-z" . undo-tree-undo)
 	 ("M-z" . undo-tree-redo)))
 
