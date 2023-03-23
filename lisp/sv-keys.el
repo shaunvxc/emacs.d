@@ -37,9 +37,9 @@
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)
+  (setq undo-tree-audo-save-history nil)
   :bind (("C-z" . undo-tree-undo)
-	 ("M-z" . undo-tree-redo))
-  )
+	 ("M-z" . undo-tree-redo)))
 
 (use-package multiple-cursors                    ; multiple cursors
   :ensure t
