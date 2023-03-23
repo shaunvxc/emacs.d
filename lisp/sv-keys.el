@@ -51,6 +51,11 @@
   :ensure t
   :bind ( ("<C-return>" . er/expand-region)))
 
+(use-package mwim
+  :ensure t
+  :config
+  (global-set-key (kbd "C-a") 'mwim-beginning)
+  (global-set-key (kbd "C-e") 'mwim-end))
 
 ;; (use-package ace-jump-mode
 ;;   :ensure t
