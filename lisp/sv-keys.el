@@ -32,6 +32,13 @@
 ;;   :bind ( ("M-." . dumb-jump-go-autosave))
 ;;   )
 
+(defun sv-xref-go-back ()
+  "recenter after calling xref-go-back"
+  (interactive)
+  (xref-go-back)
+  (recenter-top-bottom))
+
+(global-set-key (kbd "M-,") 'sv-xref-go-back)
 (use-package undo-tree
   :ensure t
   :diminish undo-tree-mode
