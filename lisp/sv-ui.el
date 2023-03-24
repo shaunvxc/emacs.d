@@ -142,10 +142,11 @@
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
- '(truncate-lines t)
  '(use-dialog-box nil)
  '(vc-follow-symlinks t)
  '(visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow)))
+
+(toggle-truncate-lines -1)		;don't like truncated lines
 
 (add-hook 'text-mode-hook 'visual-line-mode)
 (advice-add 'iconify-or-deiconify-frame :before-until 'display-graphic-p)
