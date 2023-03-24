@@ -58,7 +58,5 @@
   "Reset SYMBL to its standard value."
   (set symbl (eval (car (get symbl 'standard-value)))))
 
-
-
 ;; to make the font smaller
 ;; (set-face-attribute 'default nil :height 100)
