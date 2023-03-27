@@ -61,8 +61,10 @@
 (use-package zoom
   :ensure t
   :config
-  (setq zoom-size '(0.618 . 0.618))
-  (setq zoom-ignored-buffer-name-regexps '("^*helm" "^helm"))
+  ;; (setq zoom-size '(0.618 . 0.618))
+  (setq zoom-size '(0.618 . 0.775))
+  (setq zoom-ignored-buffer-name-regexps '("^*helm" "^helm" "HELM*" "HELM Occur" "^*HELM" "^HELM"))
+  ;; (setq zoom-ignored-buffer-names '("HELM Occur" "HELM Projectile"))
   (zoom-mode t)
   )
 
