@@ -24,8 +24,11 @@
 	  helm-scroll-amount                     8 ; scroll 8 lines other window using M-<next>/M-<prior>
 	  helm-candidate-number-limit            100
           helm-quick-update                      t
-	  helm-swoop-split-direction             'split-window-vertically
-	  helm-swoop-split-with-multiple-windows t
+	  helm-always-two-windows                nil
+	  helm-default-display-buffer-functions '(display-buffer-in-side-window)
+	  helm-display-buffer-default-height     23
+	  ;; helm-swoop-split-direction             'split-window-vertically
+	  ;; helm-swoop-split-with-multiple-windows t
 	  )
     (helm-mode))
   :config
@@ -58,6 +61,18 @@
   :ensure t
   :config (projectile-global-mode)
 )
+
+(add-to-list 'display-buffer-alist
+                    `(,(rx bos "*helm" (* not-newline) "*" eos)
+                         (display-buffer-in-side-window)
+                         (inhibit-same-window . t)
+                         (window-height . 0.25)))
+
+
+(use-package swiper
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper)))
+
 
 (provide 'sv-helm)
 ;;; init-helm-vig.el ends here
