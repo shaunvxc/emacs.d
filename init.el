@@ -37,6 +37,18 @@
 (require 'sv-org)
 (require 'sv-lsp)
 
+;; (use-package svg-lib
+;;   :ensure t)
+
+;; (use-package svg-tag-mode
+;;   :ensure t)
+
+;; (use-package nano-theme
+;;   :ensure t)
+
+;; (require 'notes-list)
+;; (setq notes-list-directories '("~/org/"))
+
 ;; set org mode capture fns [maybe move to an sv-org.el?
 (setq org-agenda-files '("~/org"))
 (global-set-key (kbd "C-c c") 'org-capture)
