@@ -146,10 +146,38 @@
   (interactive)
   (other-window -1))
 
+
+(defun vig-windows ()
+  "render my preferred frame configuration"
+  (interactive)
+  (delete-other-windows)
+  (split-window-right)
+  (find-file "~/.emacs.d/init.el")
+  (other-window 1)
+  (split-window-right)
+
+  ;; (if (get-buffer "*ein: http://127.0.0.1:8888/scratch.ipynb*")
+  ;;     (switch-to-buffer "*ein: http://127.0.0.1:8888/scratch.ipynb*")
+  ;;   (switch-to-buffer "*scratch*"))
+
+  ;; (switch-to-buffer "*scratch*")
+  ;; (find-file "~/src/notebooks/")
+  (other-window 1)
+  ;; (find-file "~/src/sithquant/sithquant/futures/basket.py")
+  (find-file "~/src/")
+  (other-window -1)
+  (other-window -1)
+  (split-window-below)
+  (org-agenda-list)
+  (other-window 1)
+  (other-window 1)
+  )
+
+
+
 (global-set-key (kbd "C-.") 'other-window)
 (global-set-key (kbd "C-,") 'prev-window)
 (global-set-key (kbd "C-;") 'other-frame)
-
-
+(global-set-key (kbd "C-x v") 'vig-windows)
 (provide 'sv-keys)
 ;;; sv-keys.el ends here
