@@ -32,6 +32,10 @@
 
 
 (setq org-startup-with-inline-images t)
+(setq org-agenda-window-setup 'current-window)
+;; unsets redundent org-agenda-cycle (also bound to C-') so just use that if you want to use it
+(define-key org-mode-map (kbd "C-,") nil)
+(global-set-key (kbd "C-,") 'prev-window)
 
 ;; (use-package org-roam
 ;;   :ensure t
