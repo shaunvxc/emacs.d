@@ -166,11 +166,10 @@
   ;; (if (get-buffer "*ein: http://127.0.0.1:8888/scratch.ipynb*")
   ;;     (switch-to-buffer "*ein: http://127.0.0.1:8888/scratch.ipynb*")
   ;;   (switch-to-buffer "*scratch*"))
-
   ;; (switch-to-buffer "*scratch*")
   ;; (find-file "~/src/notebooks/")
+
   (other-window 1)
-  ;; (find-file "~/src/sithquant/sithquant/futures/basket.py")
   (find-file "~/src/sithquant/")
   (magit-status)
   (other-window -1)
@@ -178,13 +177,13 @@
   (split-window-below)
   (org-agenda-list)
   (other-window 1)
-  (other-window 1)
-  )
+  (other-window 1))
 
 (defun sv-open-nb ()
   " [semi]... quick open ein files.... would be easier to inser an ein nb prefix to helm buffers"
   (interactive)
   (let ((nb-name (concat "*ein: http://127.0.0.1:8888/" (read-string "enter the nb-name:" nil 'my-history) ".ipynb*")))
+    ;; possible to use something like (read-file) which can utilize autocomplete?
     (if (get-buffer nb-name)
 	(switch-to-buffer nb-name)
       (switch-to-buffer "*scratch*"))
