@@ -177,9 +177,7 @@
 (defun sv-open-nb ()
   " [semi]... quick open ein files.... would be easier to inser an ein nb prefix to helm buffers"
   (interactive)
-  ;; (message (concat "*ein: http://127.0.0.1:8888/" (read-string "enter the nb-name:" nil 'my-history) ".ipynb*")  )
   (let ((nb-name (concat "*ein: http://127.0.0.1:8888/" (read-string "enter the nb-name:" nil 'my-history) ".ipynb*")))
-
     (if (get-buffer nb-name)
 	(switch-to-buffer nb-name)
       (switch-to-buffer "*scratch*"))
