@@ -164,7 +164,8 @@
   ;; (find-file "~/src/notebooks/")
   (other-window 1)
   ;; (find-file "~/src/sithquant/sithquant/futures/basket.py")
-  (find-file "~/src/")
+  (find-file "~/src/sithquant/")
+  (magit-status)
   (other-window -1)
   (other-window -1)
   (split-window-below)
@@ -173,7 +174,16 @@
   (other-window 1)
   )
 
+(defun sv-open-nb ()
+  " [semi]... quick open ein files.... would be easier to inser an ein nb prefix to helm buffers"
+  (interactive)
+  ;; (message (concat "*ein: http://127.0.0.1:8888/" (read-string "enter the nb-name:" nil 'my-history) ".ipynb*")  )
+  (let ((nb-name (concat "*ein: http://127.0.0.1:8888/" (read-string "enter the nb-name:" nil 'my-history) ".ipynb*")))
 
+    (if (get-buffer nb-name)
+	(switch-to-buffer nb-name)
+      (switch-to-buffer "*scratch*"))
+    ))
 
 (global-set-key (kbd "C-.") 'other-window)
 (global-set-key (kbd "C-,") 'prev-window)
