@@ -32,6 +32,14 @@
 ;;   :bind ( ("M-." . dumb-jump-go-autosave))
 ;;   )
 
+
+;; (defun sv-xref-find-definitions ()
+;;   "recenter after calling x-ref jump to defs"
+;;   (interactive)
+;;   (xref-find-definitions (symbol-name (symbol-at-point)))
+;;   (recenter-top-bottom))
+;; (global-set-key (kbd "M-.") 'sv-xref-find-definitions)
+
 (defun sv-xref-go-back ()
   "recenter after calling xref-go-back"
   (interactive)
@@ -139,7 +147,6 @@
   (helm-grep-git-1 default-directory (null not-all)))
 
 (global-set-key (kbd "C-0") 'my-helm-grep-do-git-grep)
-
 
 ;; window navigation keys
 (defun prev-window ()
