@@ -35,7 +35,8 @@
 (require 'sv-keys)
 (require 'sv-ui)
 (require 'sv-org)
-(require 'sv-lsp)
+;; (require 'sv-lsp)
+(require 'sv-eglot) ;; when using eglot remember to unset the LSP environment variables.
 
 ;; (use-package svg-lib
 ;;   :ensure t)
