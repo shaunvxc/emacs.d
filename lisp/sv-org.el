@@ -76,9 +76,27 @@
 (add-to-list 'org-structure-template-alist
              '("s" . "src"))
 
-(setq org-src-block-faces '(("emacs-lisp" (:background "#EEE2FF"))
-                            ("python" (:background "#EEE2FF"))))
+(with-eval-after-load 'org
+  (add-to-list 'org-structure-template-alist '("p" . "src python :session http://127.0.0.1:8888 :async")))
+
+(setq org-src-block-faces '(("emacs-lisp" (:background "#000000"))
+                            ("python" (:background "#000000"))))
 
 
+(setq org-startup-with-inline-images t)
+
+;; (defun sv-fix-inline-images ()
+;;   (when org-inline-image-overlays
+;;     (org-redisplay-inline-images)))
+
+;; (eval-after-load 'org
+;; 	       (add-hook 'org-babel-after-execute-hook 'sv-fix-inline-images))
+
+
+(eval-after-load 'org
+  (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images))
+
+(setq org-src-tab-acts-natively t)
+(setq org-edit-src-content-indentation 0)
 
 (provide 'sv-org)
