@@ -69,9 +69,9 @@
                          (window-height . 0.25)))
 
 
-(use-package swiper
-  :bind (("C-s" . swiper)
-         ("C-r" . swiper)))
+;; (use-package swiper
+;;   :bind (("C-s" . swiper)
+;;          ("C-r" . swiper)))
 
 
 (provide 'sv-helm)
