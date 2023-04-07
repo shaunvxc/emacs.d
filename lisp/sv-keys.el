@@ -193,5 +193,9 @@
 (global-set-key (kbd "C-,") 'prev-window)
 (global-set-key (kbd "C-;") 'other-frame)
 (global-set-key (kbd "C-x v") 'vig-windows)
+;; found here: https://www.reddit.com/r/emacs/comments/db8eu4/comment/f1zxi6n/
+(setq search-whitespace-regexp ".*?")
+(setq isearch-lax-whitespace t)
+
 (provide 'sv-keys)
 ;;; sv-keys.el ends here
