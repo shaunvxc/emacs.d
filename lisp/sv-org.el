@@ -77,7 +77,7 @@
              '("s" . "src"))
 
 (with-eval-after-load 'org
-  (add-to-list 'org-structure-template-alist '("p" . "src python :session http://127.0.0.1:8888 :async")))
+  (add-to-list 'org-structure-template-alist '("p" . "src python :session http://127.0.0.1:8888 :async yes")))
 
 (setq org-src-block-faces '(("emacs-lisp" (:background "#000000"))
                             ("python" (:background "#000000"))))
