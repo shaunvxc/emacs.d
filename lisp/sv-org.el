@@ -100,5 +100,6 @@
 (setq org-edit-src-content-indentation 0)
 (setq org-preserve-indentation nil)
 
+(setq org-confirm-babel-evaluate nil)
 
 (provide 'sv-org)
