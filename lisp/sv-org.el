@@ -27,8 +27,22 @@
 (require 'org)
 
 
-(setq org-todo-keywords
-      '((sequence "TODO" "|" "IN PROGRESS" "TESTING" "|" "DONE" "DEPLOYED")))
+(setq org-todo-keywords  '((sequence
+     "TODO(t)" ; doing later
+     "CURR(c)" ; doing now
+     "NEXT(n)" ; doing next
+     "|"
+     "DONE(d)" ; done
+     )
+    (sequence
+     "WAIT(w)" ; waiting for some external change (event)
+     "HOLD(h)" ; waiting for some internal change (of mind)
+     "IDEA(i)" ; maybe someday
+     "|"
+     "NOTE(o@/!)" ; end state, just keep track of it
+     "STOP(s@/!)" ; stopped waiting, decided not to work on it
+     ))
+)
 
 
 (setq org-startup-with-inline-images t)
