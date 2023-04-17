@@ -159,7 +159,8 @@
   (interactive)
   (delete-other-windows)
   (split-window-right)
-  (find-file "~/.emacs.d/init.el")
+  ;; (find-file "~/.emacs.d/init.el")
+  (find-file "~/org/tasks.org")
   (other-window 1)
   (split-window-right)
 
