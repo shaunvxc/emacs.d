@@ -184,19 +184,25 @@
  `(cursor                       ((t (:background ,"#ffffaf"))))
  `(warning                       ((t (:foreground ,"#ffffaf", :background , "#000000") )))
  `(error                       ((t (:foreground ,"#ffffaf", :background , "#000000") )))
+ ;; `(doom-modeline-buffer-modified ((t (:inherit (bold) :foreground, "#plum"))))
  `(doom-modeline-buffer-modified ((t (:inherit (bold) :foreground, "#ffffaf"))))
  `(diff-refine-changed          ((t (:extend t))))
  `(fringe                       ((t (:inherit (shadow)))))
  `(isearch-fail                 ((t (:inherit (error)))))
  `(minibuffer-prompt            ((t (:inherit (bold) :foreground ,theme-color-accent))))
  `(pulse-highlight-start-face   ((t (:background ,theme-color-accent))))
- `(region                       ((t (:foreground ,theme-color-level-1 :background ,theme-color-high :extend t))))
- `(secondary-selection          ((t (:foreground ,theme-color-accent :background ,theme-color-high :extend t))))
+
+ ;; `(region                       ((t (:foreground ,theme-color-level-1 :background ,theme-color-high :extend t))))
+ ;; `(secondary-selection          ((t (:foreground ,theme-color-accent :background ,theme-color-high :extend t))))
+ `(region                       ((t (:foreground ,theme-color-level-1 :background , "plum" :extend t))))
+ `(secondary-selection          ((t (:foreground ,"#EEE2FF" :background ,"plum" :extend t))))
+
  `(show-paren-match             ((t (:inherit (bold) :foreground ,theme-color-accent))))
  `(show-paren-mismatch          ((t (:inherit (error) :inverse-video t)))))
 
 (use-package rainbow-mode
   :ensure t)
+
 
 (provide 'sv-ui)
 ;;; sv-ui.el ends here
