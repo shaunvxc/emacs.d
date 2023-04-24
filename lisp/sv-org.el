@@ -26,7 +26,6 @@
 
 (require 'org)
 
-
 (setq org-todo-keywords  '((sequence
      "TODO(t)" ; doing later
      "CURR(c)" ; doing now
@@ -51,6 +50,12 @@
 ;; for storing/inserting links
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
+
+(use-package org-super-agenda
+  :ensure t
+  :config
+  (org-super-agenda-mode)
+  )
 
 ;; unsets redundent org-agenda-cycle (also bound to C-') so just use that if you want to use it
 (define-key org-mode-map (kbd "C-,") nil)
