@@ -38,6 +38,9 @@
 ;; (require 'sv-lsp)
 (require 'sv-eglot) ;; when using eglot remember to unset the LSP environment variables.
 
+(require 'sv-custom)
+
+
 ;; (use-package svg-lib
 ;;   :ensure t)
 
@@ -61,7 +64,7 @@
 
 ;; make scratch buffer the first buffer
 (setq inhibit-startup-screen t)
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/.emacs.d/lisp/sv-custom.el")
 ;; custom set variables below
 
 (put 'narrow-to-region 'disabled nil)
@@ -70,6 +73,7 @@
 (defun custom/reset-var (symbl)
   "Reset SYMBL to its standard value."
   (set symbl (eval (car (get symbl 'standard-value)))))
+
 
 ;; to make the font smaller
 ;; (set-face-attribute 'default nil :height 100)
