@@ -136,18 +136,6 @@
 
 (electric-pair-mode 1)
 
-;; from @cyrus-and's configs
-(custom-set-variables
- '(frame-resize-pixelwise t)
- '(indicate-buffer-boundaries 'left)
- ;; '(indicate-empty-lines t)
- '(ring-bell-function 'ignore)
- '(scroll-bar-mode nil)
- '(show-paren-mode t)
- '(use-dialog-box nil)
- '(vc-follow-symlinks t)
- '(visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow)))
-
 (toggle-truncate-lines -1)		;don't like truncated lines
 (blink-cursor-mode 0)              ;; no blinking cursor
 (add-hook 'text-mode-hook 'visual-line-mode)
