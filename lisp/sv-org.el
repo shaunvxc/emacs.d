@@ -28,7 +28,7 @@
 
 (setq org-todo-keywords  '((sequence
      "TODO(t)" ; doing later
-     "CURR(c)" ; doing now
+     "WIPR(c)" ; doing now
      "NEXT(n)" ; doing next
      "|"
      "DONE(d)" ; done
