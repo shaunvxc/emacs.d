@@ -42,6 +42,7 @@
   :ensure t
   :config
   (setq ein:output-area-inlined-images t)
+  (setq ein:query-timeout 100000)
 )
 
 (provide 'sv-python)
