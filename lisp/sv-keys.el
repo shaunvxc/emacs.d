@@ -194,9 +194,39 @@
 (global-set-key (kbd "C-,") 'prev-window)
 (global-set-key (kbd "C-;") 'other-frame)
 (global-set-key (kbd "C-x v") 'vig-windows)
+
+(global-set-key (kbd "C-s") 'isearch-forward)
+(global-set-key (kbd "C-r") 'isearch-backward)
 ;; found here: https://www.reddit.com/r/emacs/comments/db8eu4/comment/f1zxi6n/
 (setq search-whitespace-regexp ".*?")
 (setq isearch-lax-whitespace t)
+
+;; easy searching for open python notebooks...
+(global-set-key (kbd "C-x pn")   'ein:notebook-jump-to-opened-notebook)
+
+(defun find-ein-scratch()
+  (interactive)
+  (if (get-buffer "*ein: http://127.0.0.1:8888/scratch.ipynb*")
+      (switch-to-buffer "*ein: http://127.0.0.1:8888/scratch.ipynb*")
+    (switch-to-buffer "*scratch*")))
+
+(defun find-ein-palp-orders()
+  (interactive)
+  (if (get-buffer "*ein: http://127.0.0.1:8888/palp_orders.ipynb*")
+      (switch-to-buffer "*ein: http://127.0.0.1:8888/palp_orders.ipynb*")
+    (switch-to-buffer "*scratch*")))
+
+(defun find-ein-xizor-orders()
+  (interactive)
+  (if (get-buffer "*ein: http://127.0.0.1:8888/xizor_i.ipynb*")
+      (switch-to-buffer "*ein: http://127.0.0.1:8888/xizor_i.ipynb*")
+    (switch-to-buffer "*scratch*")))
+
+;; .... and some handy short-cuts for jumping to my core ipynbs
+(global-set-key (kbd "C-x ps")   'find-ein-scratch)
+(global-set-key (kbd "C-x po")   'find-ein-palp-orders)
+(global-set-key (kbd "C-x x")   'find-ein-xizor-orders)
+
 
 (provide 'sv-keys)
 ;;; sv-keys.el ends here
