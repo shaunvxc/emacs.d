@@ -45,4 +45,15 @@
   (setq ein:query-timeout 100000)
 )
 
+
+(defun my-python-mode-hook ()
+  (font-lock-add-keywords
+   nil
+   '(("\\<\\(TODO\\)\\>"
+      1 '(:weight bold) prepend))
+   t))
+
+(add-hook 'python-mode-hook 'my-python-mode-hook)
+
+
 (provide 'sv-python)
